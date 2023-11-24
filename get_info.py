@@ -1,14 +1,16 @@
-import tkinter as tk
 
+import tkinter as tk
+from get_summary import get_summary
 def process_input():
+   
     id_text = entry_text.get()
     
     try:
         # Try to convert the input to an integer
         input_digit = int(entry_digit.get())
         
-        # Process the input
-        output_result = f"Input Text: {id_text}\nInput Digit: {input_digit}"
+        output_result = get_summary(id_text)
+        output_result="".join(output_result)
         
     except ValueError:
         output_result = "Please enter a valid digit."
@@ -35,9 +37,8 @@ entry_digit = tk.Entry(root, width=10)
 entry_digit.grid(row=1, column=1, padx=10, pady=10)
 
 # Output Box
-output_box = tk.Text(root, height=5, width=40, state=tk.DISABLED)
+output_box = tk.Text(root, height=30, width=80, state=tk.DISABLED)
 output_box.grid(row=3, column=0, columnspan=2, padx=10, pady=10)
-
 # Submit Button
 process_button = tk.Button(root, text="Submit", command=process_input)
 process_button.grid(row=2, column=0, columnspan=2, pady=10)

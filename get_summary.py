@@ -23,7 +23,7 @@ def get_summary(url):
     outputs_tensor = model.generate(input_tensor, max_length=160, min_length=120, length_penalty=2.0, num_beams=4, early_stopping=True)
 
 
-    print(tokenizer.decode(outputs_tensor[0]))
+    return tokenizer.decode(outputs_tensor[0])
 
-get_summary("https://www.youtube.com/watch?v=lv1_-RER4_I")
-init_database()
+#get_summary("https://www.youtube.com/watch?v=JOiGEI9pQBs")
+#init_database()
